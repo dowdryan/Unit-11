@@ -1,0 +1,28 @@
+// Find/FindIndex Exercise
+
+const users = [
+  {username: 'mlewis'},
+  {username: 'akagen'},
+  {username: 'msmith'}
+];
+
+// -----------------------------------------------------------------------
+// findUserByUsername 
+function findUserByUsername(users, username) {
+  return users.find(function(value) {
+    return value.username === username
+  })
+}
+
+
+// -----------------------------------------------------------------------
+// removeUser * 
+function removeUser(users, username) {
+  let index = users.findIndex(function(value) {
+    return value.username === username
+  })
+  if (index === -1) {
+    return
+  }
+  return users.splice(index, 1)[0]
+}
