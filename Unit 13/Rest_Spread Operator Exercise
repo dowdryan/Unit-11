@@ -1,0 +1,47 @@
+// Refactor it to use the rest operator & an arrow function:
+const filterOutOdds = (...nums) => nums.filter(n => n % 2 === 0)
+
+// findMin
+const findMin = (...nums) => Math.min(...nums)
+
+
+// mergeObjects
+const mergeObjects = (key, value) => i = {...key,...value}
+
+
+// doubleAndReturnArgs
+const doubleAndReturnArgs = (array, ...args) => [...array, ...args.map(v => v * 2)]
+
+
+// Slice and Dice!
+const removeRandom = (items) => {
+    let rand = Math.floor(Math.random() * items.length)
+    console.log("Random Number: " + rand)
+    return [...items.slice(0, rand), ...items.slice(rand + 1)]
+}
+
+
+const extend = (array1, array2) => {
+    return [...array1, ...array2]
+}
+
+const addKeyVal = (obj, key, val) => {
+    let newObj = {...obj}
+    newObj[key] = val
+    return newObj
+}
+
+const removeKey = (obj, key) => {
+    let newObj = {...obj}
+    delete newObj[key]
+    return newObj
+}
+
+const combine = (obj1, obj2) => {
+    return {...obj1, ...obj2}
+}
+
+const update = (obj, key, val) => {
+    let newObj = {...obj, [key]: val}
+    return newObj
+}
