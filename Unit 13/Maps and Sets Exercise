@@ -1,0 +1,40 @@
+// Quick Question #1
+new Set([1,1,2,2,3,4]) // {1, 2, 3, 4}
+
+// Quick Question #2
+[...new Set("referee")].join("") // "ref"
+
+// Quick Question #3
+let m = new Map();
+m.set([1,2,3], true); // {Array(3) => true}
+m.set([1,2,3], false); // {Array(3) => false}
+
+// hasDuplicate
+function hasDuplicate(array) {
+    const i = new Set(array)
+    if (i.size !== array.length) {
+        return true
+    } else {
+        return false
+    }
+}
+
+// vowelCount
+function isVowel(i) {
+    const vowels = 'aeiou'
+    return vowels.includes(i)
+}
+function vowelCount(string) {
+    const map = new Map()
+    for(let i of string) {
+        let lowerCase = i.toLowerCase()
+        if (isVowel(lowerCase)) {
+            if(map.has(lowerCase)) {
+                map.set(lowerCase, map.get(lowerCase) + 1);
+            } else {
+                map.set(lowerCase, 1)
+            }
+        }
+    }
+    return map
+}
