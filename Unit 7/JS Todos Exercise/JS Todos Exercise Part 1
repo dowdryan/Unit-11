@@ -1,0 +1,25 @@
+let todoForm = document.getElementById("newTodoForm");
+let todoList = document.getElementById("todoList");
+
+document.addEventListener("DOMContentLoaded", function() {
+    todoForm.addEventListener("submit", function(event) {
+        event.preventDefault();
+        let remove = document.createElement("button");
+        let newTodo = document.createElement("li");
+
+        remove.innerText = "Remove";
+        remove.style.marginLeft = "10px"
+        newTodo.innerText = document.getElementById("task").value;
+        todoList.appendChild(newTodo);
+        newTodo.appendChild(remove);
+        todoForm.reset();
+    });
+    todoList.addEventListener("click", function(event) {
+        const targetTagToLowerCase = event.target.tagName.toLowerCase();
+        if (targetTagToLowerCase === "li") {
+          event.target.style = `textDecoration: line-through;`;
+        } else if (targetTagToLowerCase === "button") {
+          event.target.parentNode.remove();
+        }
+    });
+});
