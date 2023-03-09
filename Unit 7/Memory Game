@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Memory Game!</title>
+  </head>
+  <body>
+    <style>
+      #game div {
+        border: 1px solid black;
+        width: 15%;
+        height: 200px;
+        margin: 10px;
+        display: inline-block;
+      }
+    </style>
+    <h1>Memory Game!</h1>
+    <div id="game">
+    </div>
+    <script>
+      const gameContainer = document.getElementById("game");
+      let card0 = null
+      let card1 = null
+      let array = []
+      let noClicking = false;
+      cardsFlipped = 0
+
+      const COLORS = [
+        "red",
+        "blue",
+        "green",
+        "orange",
+        "purple",
+        "red",
+        "blue",
+        "green",
+        "orange",
+        "purple"
+      ];
+
+      function shuffle(array) {
+        let counter = array.length;
+        while (counter > 0) {
+          let index = Math.floor(Math.random() * counter);
+          counter--;
+          let temp = array[counter];
+          array[counter] = array[index];
+          array[index] = temp;
+        }
+        return array;
+      }
+      let shuffledColors = shuffle(COLORS);
+
+      function createDivsForColors(colorArray) {
+          for (let color of colorArray) {
+              const newDiv = document.createElement("div");
+              newDiv.classList.add(color);
+              newDiv.addEventListener("click", handleCardClick);
+              newDiv.addEventListener("click", resetColors);
+              function resetColors() {
+                  array.push(color)
+                  console.log(array)
+                  console.log(colorArray.indexOf(color))
+              }
+              gameContainer.append(newDiv);
+          }
+      }
+
+      function handleCardClick(event) {
+          let currentCard = event.target
+          currentCard.style.backgroundColor = `${currentCard.classList}`
+          if (!card0 || !card1) {
+              currentCard.classList.add("flipped");
+              card0 = card0 || currentCard;
+              if(currentCard === card0) {
+                  card1 = null
+              } else {
+                  card1 = currentCard
+              }
+          }
+          if (card0 && card1) {
+              noClicking = true;
+              let gif1 = card0.className;
+              let gif2 = card1.className;
+          console.log(gif1)
+          console.log(gif2)
+              if (gif1 === gif2) {
+                cardsFlipped += 2;
+                card0.removeEventListener("click", handleCardClick);
+                card1.removeEventListener("click", handleCardClick);
+                card0 = null;
+                card1 = null;
+                noClicking = false;
+              } else {
+                  setTimeout(function() { 
+                      card0.style.backgroundColor = "";
+                      card1.style.backgroundColor = "";
+                      card0.classList.remove("flipped");
+                      card1.classList.remove("flipped");
+                      card0 = null;
+                      card1 = null;
+                      noClicking = false;
+                      array.splice(0, array.length)  
+                  }, 100)
+                  array = []
+              }
+          }
+      }
+      createDivsForColors(shuffledColors);
+    </script>
+  </body>
+</html>
