@@ -1,0 +1,69 @@
+# ---------------------------------------------------------------------------
+# Part 1:
+  - make a directory called first
+    - mkdir first
+    
+  - change directory to the first folder
+    - cd first
+    
+  - create a file called person.txt
+    - touch person.txt
+  
+  - change the name of the file to another.txt 
+    - mv person.txt another.txt
+  
+  - make a copy of the another.txt file and call it copy.txt
+    - cp another.txt copy.txt
+  
+  - remove the copy.txt file
+    - rm copy.txt
+  
+  - make a copy of the first folder and call it second
+    - cp -r first second
+  
+  - delete the second folder
+    - rm -rf second
+    
+    
+ # ---------------------------------------------------------------------------
+ # Part 2:
+  - What does the man command do? Type in man rm. How do you scroll and get out?
+    - The man command will return a list of hotkeys for specific commands.
+    - D/Control ⌃-D to move fowards by half a page.
+    - B/Control ⌃-B to move backwards one page.
+    - U/Control ⌃-U to move backwards by half a page.
+  
+  - Look at the man page for ls. What does the -l flag do? What does the -a flag do?
+    - -l: Sorts files into a list.
+    -a: Lists all files/folders, including hidden ones.
+   
+  - How do you jump between words in the terminal?
+    - Option left/right.
+   
+  - How do you get to the end of a line in terminal?
+    - Control + e.
+   
+  - How do you move your cursor to the beginning in terminal?
+    - Control + a.
+   
+  - How do you delete a word (without pressing backspace multiple times) in terminal?
+    - Option + Delete.
+   
+  - What is the difference between a terminal and shell?
+    - Terminal: A terminal refers to a wrapper program which runs a shell. It is just an interface to the shell.
+    - Shell: The program which actually processes commands and returns output.
+   
+  - What is an absolute path?
+    - A path starting from the root directory and gives the complete path of a file/folder.
+   
+  - What is an relative path?
+    - A path that starts at the user's current location, and not the root directory.
+   
+  - What is a flag? Give three examples of flags you have used.
+    - Flags: Can change and enhance commands.
+    - "r", "f", and "-rf".
+   
+  - What do the r and f flags do with the rm command?
+    - r: Removes folders and recursively go through each folder/file.
+    - f: Forces removal.
+    
