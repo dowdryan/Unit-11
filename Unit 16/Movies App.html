@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies App</title>
+</head>
+<body>
+    <style>
+        #delete {
+            visibility: hidden;
+        }
+    </style>
+    <h1>Movies App</h1>
+    <form id="form">
+        <input type="text" name="title" id="title" minlength="2"><br><br>
+        <input type="number" name="rating" id="rating" min="0" max="10"><br><br>
+        <input type="submit" value="Submit">
+    </form>
+    <table id="table">
+        <ul id="ul"></ul>
+    </table>
+    <button id="delete">Remove</button>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="Movies App.js"></script>
+</body>
+</html>
