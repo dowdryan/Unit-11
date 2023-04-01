@@ -1,0 +1,45 @@
+// extractValue
+const arr = [{name: 'Elie'}, {name: 'Tim'}, {name: 'Matt'}, {name: 'Colt'}]
+function extractValue(arr, key) {
+    return arr.reduce(function(a, b) {
+        a.push(b[key])
+        return a
+    }, [])
+}
+
+// vowelCount
+function vowelCount(string){
+    const vowels = "aeiou";
+    return string.split('').reduce(function(acc, next){
+        let lowerCased = next.toLowerCase()
+        if(vowels.indexOf(lowerCased) !== -1){
+            if(acc[lowerCased]){
+                acc[lowerCased]++;
+            } else {
+                acc[lowerCased] = 1;
+            }
+        }
+        return acc;
+    }, {});
+}
+
+// addKeyAndValue
+function addKeyAndValue(array, key, value){
+    return array.reduce(function(acc, next, idx){
+        acc[idx][key] = value;
+        return acc;
+    },arr);
+}
+
+
+// partition
+function partition(array, cb){
+    return array.reduce(function(acc,next){
+        if(cb(next)){
+            acc[0].push(next);
+        } else {
+            acc[1].push(next);
+        }
+        return acc;
+    }, [[],[]]);
+}
