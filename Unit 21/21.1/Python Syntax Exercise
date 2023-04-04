@@ -1,0 +1,22 @@
+def print_upper_words(array): 
+    """Seperate the words inside the array, then capitalize all of them."""
+    for word in array:
+        print(word.upper())
+
+def print_upper_words2(array): 
+    """If a word starts with a lower or uppercase 'e', seperate those words, then capitalize them."""
+    for letter in array:
+        if letter.lower().startswith('e'):
+            print(letter.upper())
+
+def print_upper_words3(array, must_start_with):
+    """Checks to see if each word inside the array starts with a specific capital letter, then seperates those words and capitalizes them."""
+    for word in array:
+        for letter in must_start_with:
+            if word.startswith(letter):
+                print(word.upper())
+
+
+print_upper_words(["hello", "hey", "goodbye", "yo", "yes"])
+print_upper_words2(["Ello", "ey", "goodbye"])
+print_upper_words3(["e", "Ellie", "Al", "rr"], must_start_with=["A", "E"])
